@@ -1,18 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<!-- res/layout/activity_main.xml -->
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- 상단 타이틀 "부기마켓" -->
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:text="부기마켓"
+        android:textColor="#41245C"
+        android:textSize="48sp"
+        android:textStyle="bold" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- 판매글 등록 버튼 (+ 아이콘) -->
+
+    <!-- 판매글 등록 버튼 (+ 아이콘) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="446dp"
+        android:layout_above="@+id/plusbutton"
+        android:layout_below="@id/title"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="-1dp" />
+
+    <RelativeLayout
+        android:id="@+id/plusbutton"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="82dp"
+        android:background="@drawable/circle_button">
+
+        <ImageView
+            android:id="@+id/writePostButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_add" />
+    </RelativeLayout>
+
+    <!-- Bottom Bar -->
+    <RelativeLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+        android:background="#B5A0D3">
+
+        <!-- 로그아웃 버튼 -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="33dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toStartOf="@+id/homeButton"
+            android:text="로그아웃" />
+
+        <!-- 홈 버튼 -->
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/home_button_description"
+            android:src="@drawable/ic_home" />
+
+        <!-- 채팅 버튼 -->
+        <ImageButton
+            android:id="@+id/chatButton"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="56dp"
+            android:layout_marginEnd="-23dp"
+            android:layout_marginBottom="16dp"
+            android:layout_toEndOf="@+id/homeButton"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/chat_button_description"
+            android:src="@drawable/ic_chat" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/filterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="22dp"
+        android:layout_marginBottom="582dp"
+        android:text="필터여부"
+        android:drawableLeft="@drawable/ic_filter"
+        android:textColor="#FFFFFF"
+        android:padding="8dp"/>
+
+
+</RelativeLayout>
