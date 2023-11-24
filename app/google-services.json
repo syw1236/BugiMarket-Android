@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "837687777725",
+    "project_id": "myfirebase-54e19",
+    "storage_bucket": "myfirebase-54e19.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837687777725:android:b82975dbd01550c8935ad4",
+        "android_client_info": {
+          "package_name": "com.example.bugimarket"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwoXe0WsA3_FpUr0qLOB9M3zpcKnfBb9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
