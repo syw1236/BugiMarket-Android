@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_item_all"
+        android:title="전체"
+        />
+    <item
+        android:id="@+id/menu_item_onsale"
+        android:title="판매 중"
+        />
+    <item
+        android:id="@+id/menu_item_soldout"
+        android:title="판매완료"
+        />
+</menu>
