@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.Firebase
 import com.google.firebase.auth.auth
@@ -26,6 +27,7 @@ class SignUpActivity: AppCompatActivity() {
         Firebase.auth.createUserWithEmailAndPassword(userEmail,password).addOnCompleteListener(this){
             if(it.isSuccessful){
                 startActivity(Intent(this,LoginActivity::class.java)) //회원가입 완료 시 로그인 창으로 이동
+                Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
             }
             finish() //해당 activity를 끝냄
         }
