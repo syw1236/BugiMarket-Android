@@ -1,5 +1,0 @@
-package com.example.myfirebase.home
-
-enum class Status {
-    SOLDOUT, ONSALE
-}
