@@ -14,7 +14,7 @@
     <item
         android:id="@+id/myPage"
         android:icon="@drawable/ic_person"
-        android:title="myInfo" />
+        android:title="logout" />
 
 
 </menu>

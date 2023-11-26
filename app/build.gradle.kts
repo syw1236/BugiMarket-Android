@@ -10,6 +10,14 @@ android {
     namespace = "com.example.bugimarket"
     compileSdk = 34
 
+    dataBinding{
+        enable = true
+    }
+
+    buildFeatures { // 뷰바인딩
+        viewBinding = true
+    }
+
     defaultConfig {
         applicationId = "com.example.bugimarket"
         minSdk = 33

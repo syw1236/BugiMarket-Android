@@ -1,9 +1,12 @@
 package com.example.bugimarket
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.Firebase
+import com.google.firebase.auth.auth
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,11 +26,20 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.home -> replaceFragment(homeFragment)
                 R.id.chatList -> replaceFragment(chatListFragment)
-//                R.id.myPage -> replaceFragment(myPageFragment)
+                R.id.myPage -> logout()
 
             }
             true
         }
+    }
+
+    private fun logout(){
+        Firebase.auth.signOut()
+
+        val intent = Intent(this, LoginActivity:: class.java)
+        startActivity(intent)
+        finish()
+
     }
 
     private fun replaceFragment(fragment: Fragment){
