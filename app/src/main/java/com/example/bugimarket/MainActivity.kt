@@ -14,11 +14,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        if (Firebase.auth.currentUser == null) {
+            startActivity(
+                Intent(this, LoginActivity::class.java)
+            )
+            finish()
+        }
+        
         val homeFragment = HomeFragment()
         val chatListFragment = ChatListFragment()
-//        val myPageFragment = MyPageFragment()
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+
 
         replaceFragment(homeFragment)
 
