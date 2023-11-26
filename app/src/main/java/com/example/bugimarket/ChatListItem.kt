@@ -1,10 +1,8 @@
-package com.example.bugimarket
-
 data class ChatListItem(
-    val buyerId: String,
-    val sellerId: String,
-    val foreignkey: Long,
-    val title: String
+    val buyerId: String, // 구매자의 식별자
+    val sellerId: String, // 판매자의 식별자
+    val foreignkey: Long, // 방을 구별하는 외래키
+    val title: String // 채팅 방 제목
 ) {
-    constructor(): this("", "", 0, "")
+    constructor() : this("", "", 0, "") // 기본 생성자를 사용하여 빈 ChatListItem 객체 생성
 }
