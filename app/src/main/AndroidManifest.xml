@@ -44,6 +44,22 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.bugimarket.DetailActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.bugimarket.EditArticleActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+          <activity
             android:name=".ChatRoomActivity"
             android:label="ChatRoomActivity"   android:theme="@style/AppTheme" />
 

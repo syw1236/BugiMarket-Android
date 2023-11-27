@@ -1,5 +1,6 @@
 package com.example.bugimarket
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -79,8 +80,8 @@ class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<Ar
         val articleModel = currentList[position]
         holder.bind(articleModel)
 
-        /* holder.itemView.setOnClickListener {
-            val intent = Intent(holder.itemView.context, 상세보기Activity::class.java).apply {
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java).apply {
                 putExtra("chatKey", articleModel.chatKey)
                 putExtra("title", articleModel.title)
                 putExtra("price", articleModel.price)
@@ -88,11 +89,12 @@ class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<Ar
                 putExtra("imageUrl", articleModel.imageUrl)
                 putExtra("status", articleModel.status)  // 'status' 정보 추가
                 putExtra("isSeller", articleModel.sellerId == auth.currentUser?.uid)
-
+                putExtra("sellerId", articleModel.sellerId)
             }
             holder.itemView.context.startActivity(intent)
-        } */
+        }
     }
+
 
     //ArticleModel 간의 차이를 계산하는 유틸리티 객체
     companion object {
