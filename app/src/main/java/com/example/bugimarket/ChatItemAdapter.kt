@@ -16,8 +16,8 @@ class ChatItemAdapter : ListAdapter<ChatItem, ChatItemAdapter.ViewHolder>(diffUt
 
         // 데이터를 뷰에 바인딩하는 함수
         fun bind(chatItem: ChatItem) {
-            binding.messageTextView.text = chatItem.message
-            binding.senderTextView.text = chatItem.senderId
+            binding.messageTextView.text = chatItem.message //보낸 메시지
+            binding.senderTextView.text = chatItem.senderId //보낸 사람의 id
             Log.d("ChatItemAdapter", "${chatItem.message}, ${chatItem.senderId}")
         }
     }

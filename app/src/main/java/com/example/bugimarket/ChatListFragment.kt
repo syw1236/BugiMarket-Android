@@ -41,6 +41,7 @@ class ChatListFragment : Fragment(R.layout.chat_list_fragment) {
                 // 채팅방 항목을 클릭하면 ChatRoomActivity로 이동
                 val intent = Intent(it, ChatRoomActivity::class.java)
                 intent.putExtra("chatKey", chatRoom.foreignkey)
+
                 startActivity(intent)
             }
         })

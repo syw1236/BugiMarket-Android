@@ -23,7 +23,8 @@ class ChatListAdapter(val onItemClicked: (ChatListItem) -> Unit) : ListAdapter<C
             }
 
             // 뷰에 데이터를 설정
-            binding.chatRoomTitleTextView.text = chatListItem.title
+            binding.chatRoomTitleTextView.text = chatListItem.title //채팅방 이름을 게시글의 title로 설정
+            binding.sendId.text = "채팅방 생성자: "+chatListItem.sellerId //채팅을 보낸 사람의 id가 나오도록 설정
         }
     }
 
