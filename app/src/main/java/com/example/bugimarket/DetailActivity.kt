@@ -1,18 +1,25 @@
 package com.example.bugimarket
 
+import ChatListItem
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
+import com.example.bugimarket.DBKey.Companion.CHILD_CHAT
 import com.example.bugimarket.databinding.ActivityDetailBinding
+import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.database
 
 class DetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var userDB: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,6 +35,7 @@ class DetailActivity : AppCompatActivity() {
 
         // 로그인한 사용자의 Uid를 가져옴
         val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
+
 
         // 로그인한 사용자가 아이템을 올린 사용자와 동일한 경우에만 'edit_button'을 보여줌
         if (currentUserId == isSeller) {
@@ -64,8 +72,37 @@ class DetailActivity : AppCompatActivity() {
 
         // 채팅 버튼 리스너 추가
         binding.chatButton.setOnClickListener {
-//            val chatIntent = Intent(this, ChatActivity::class.java)
-//            startActivity(chatIntent)
+            userDB = Firebase.database.reference.child(DBKey.DB_USERS)
+            if(currentUserId != null){
+                if(currentUserId != isSeller){
+                    val chatRoom = ChatListItem(
+                        buyerId = currentUserId,
+                        sellerId = isSeller ?: "",
+                        title = title ?: "",
+                        foreignkey = System.currentTimeMillis()
+                    )
+                    userDB.child(currentUserId)
+                        .child(CHILD_CHAT)
+                        .push()
+                        .setValue(chatRoom)
+
+                    userDB.child(isSeller ?: "")
+                        .child(CHILD_CHAT)
+                        .push()
+                        .setValue(chatRoom)
+
+
+                    val chatIntent = Intent(this, ChatRoomActivity::class.java)
+                    chatIntent.putExtra("chatKey", chatRoom.foreignkey)
+                    startActivity(chatIntent)
+                    Toast.makeText(this, "채팅방이 생성되었습니다. 예의를 지켜 채팅해주세요.", Toast.LENGTH_SHORT).show()
+
+                }
+            }
+
+
+
+
         }
 
 
