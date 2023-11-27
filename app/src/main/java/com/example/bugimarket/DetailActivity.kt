@@ -71,7 +71,7 @@ class DetailActivity : AppCompatActivity() {
         }
 
         // 채팅 버튼 리스너 추가
-        binding.chatButton.setOnClickListener {
+        binding.chatButton.setOnClickListener { //채팅하기 버튼을 클릭하면 채팅방이 생성되고 해당 채팅방으로 이동하게 된다.
             userDB = Firebase.database.reference.child(DBKey.DB_USERS)
             if(currentUserId != null){
                 if(currentUserId != isSeller){
