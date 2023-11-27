@@ -17,7 +17,14 @@ class SignUpActivity: AppCompatActivity() {
         findViewById<Button>(R.id.singupBtn).setOnClickListener {
             val userEmail = findViewById<EditText>(R.id.inputSignupEmail).text.toString() //입력한 이메일을 가져옴
             val password = findViewById<EditText>(R.id.inputSignupPassword).text.toString() //입력한 비밀번호를 가져옴
-            createAuth(userEmail,password)
+            if( userEmail.length==0 ||password.length==0 || password.length<6){
+                Toast.makeText(this, "비밀번호는 6자 이상이 되도록 작성해주세요.", Toast.LENGTH_SHORT).show()
+
+            }
+            else{
+                createAuth(userEmail,password)
+            }
+
         }
 
 
