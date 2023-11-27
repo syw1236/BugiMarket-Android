@@ -3,6 +3,7 @@ package com.example.bugimarket
 import ChatItem
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
@@ -35,6 +36,9 @@ class ChatRoomActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.chat_room)
+
+        // ActionBar 활성화
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Intent로부터 채팅 키 가져오기
         val foreignkey = intent.getLongExtra("chatKey", -1)
@@ -78,9 +82,6 @@ class ChatRoomActivity : AppCompatActivity() {
                 message = findViewById<EditText>(R.id.messageEditText).text.toString()
             )
 
-//            // 채팅 데이터베이스에 새로운 채팅 아이템 추가
-//            chatDB!!.push().setValue(chatItem)
-
             // 채팅 데이터베이스에 새로운 채팅 아이템 추가
             chatDB!!.push().setValue(chatItem)
                 .addOnCompleteListener { task ->
@@ -88,13 +89,20 @@ class ChatRoomActivity : AppCompatActivity() {
 
                         findViewById<EditText>(R.id.messageEditText).setText("") //보낸 후 입력창을 초기화 시킴
                         //마지막으로 보낸 문자가 chatRoom의 제목 아래에 표시되어야함
-
-                        
                     } else {
                         // setValue 작업이 실패한 경우 처리
                         // 예를 들어, 사용자에게 알림을 표시할 수 있습니다.
                     }
                 }
+        }
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressed()
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
         }
     }
 }
