@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
             )
             finish()
         }
-        
+
         val homeFragment = HomeFragment()
         val chatListFragment = ChatListFragment()
 
