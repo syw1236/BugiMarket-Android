@@ -27,7 +27,10 @@
         android:layout_marginTop="100dp"
         android:src="@drawable/delete"
         app:layout_constraintStart_toEndOf="@+id/thumbnailImageView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/thumbnailImageView" />
+
+
 
     <TextView
         android:id="@+id/titleTextView"
