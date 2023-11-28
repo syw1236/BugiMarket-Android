@@ -12,34 +12,59 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import java.text.SimpleDateFormat
 import java.util.Date
+import android.view.View
 
-//ArticleAdapter 클래스 정의, ListAdapter를 상속받음
-class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<ArticleModel, ArticleAdapter.ViewHolder>(diffUtil) {
 
-    //FirebaseAuth 인스턴스를 저장하는 프로퍼티
+class ArticleAdapter(private val onItemClicked: (ArticleModel, Action) -> Unit) :
+    ListAdapter<ArticleModel, ArticleAdapter.ArticleViewHolder>(Companion.diffUtil) {
+
     private val auth: FirebaseAuth by lazy {
         FirebaseAuth.getInstance()
     }
 
-    //ViewHolder 내부 클래스 정의
-    inner class ViewHolder(private val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root) {
+    enum class Action {
+        CLICK, DELETE
+    }
 
-        //ArticleModel를 ViewHolder에 바인딩하는 메서드
+    // ArticleAdapter 클래스
+    inner class ArticleViewHolder(private val binding: ItemArticleBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.root.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClicked(getItem(position), Action.CLICK)
+                }
+            }
+
+            binding.deleteButton.setOnClickListener {
+                val position = bindingAdapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClicked(getItem(position), Action.DELETE)
+                }
+            }
+        }
+
         fun bind(articleModel: ArticleModel) {
-            //날짜 형식 지정을 위한 SimpleDataFormat 인스턴스 생성
             val format = SimpleDateFormat("MM월 dd일")
             val date = Date(articleModel.createdAt)
 
-            //UI 요소에 데이터 설정
             binding.titleTextView.text = articleModel.title
             binding.dateTextView.text = format.format(date).toString()
             binding.priceTextView.text = "${articleModel.price}원"
-            binding.statusTextView.text = if (articleModel.status == Status.ONSALE.name) "판매중" else "판매완료"
+            binding.statusTextView.text =
+                if (articleModel.status == Status.ONSALE.name) "판매중" else "판매완료"
 
+            // 현재 사용자가 아이템 작성자인지 확인
+            val isCurrentUserItem = auth.currentUser?.uid == articleModel.sellerId
 
-            //이미지 URL이 "gs://"로 시작하는 경우 Firebase Storage에서 이미지 다운로드
+            // 삭제 버튼 표시 여부 결정
+            binding.deleteButton.visibility = if (isCurrentUserItem) View.VISIBLE else View.GONE
+
             if (articleModel.imageUrl.startsWith("gs://")) {
-                val storageRef = FirebaseStorage.getInstance().getReferenceFromUrl(articleModel.imageUrl)
+                val storageRef =
+                    FirebaseStorage.getInstance().getReferenceFromUrl(articleModel.imageUrl)
 
                 storageRef.downloadUrl.addOnSuccessListener { uri ->
                     val imageUrl = uri.toString()
@@ -50,23 +75,20 @@ class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<Ar
 
                 }
             } else {
-                //그렇지 않은 경우 Glide를 사용하여 이미지 로드
                 Glide.with(binding.thumbnailImageView)
                     .load(articleModel.imageUrl)
                     .into(binding.thumbnailImageView)
             }
-            //아이템 클릭 이벤트 설정
+
             binding.root.setOnClickListener {
-                onItemClicked(articleModel)
+                onItemClicked(articleModel, Action.CLICK)
             }
-
-
         }
     }
 
-    //ViewHolder를 생성하는 메서드
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
+        return ArticleViewHolder(
             ItemArticleBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -75,8 +97,7 @@ class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<Ar
         )
     }
 
-    //ViewHolder에 데이터를 바인딩하는 메서드
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val articleModel = currentList[position]
         holder.bind(articleModel)
 
@@ -87,7 +108,7 @@ class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<Ar
                 putExtra("price", articleModel.price)
                 putExtra("description", articleModel.description)
                 putExtra("imageUrl", articleModel.imageUrl)
-                putExtra("status", articleModel.status)  // 'status' 정보 추가
+                putExtra("status", articleModel.status)
                 putExtra("isSeller", articleModel.sellerId == auth.currentUser?.uid)
                 putExtra("sellerId", articleModel.sellerId)
             }
@@ -95,17 +116,12 @@ class ArticleAdapter(val onItemClicked: (ArticleModel) -> Unit) : ListAdapter<Ar
         }
     }
 
-
-    //ArticleModel 간의 차이를 계산하는 유틸리티 객체
     companion object {
         val diffUtil = object : DiffUtil.ItemCallback<ArticleModel>() {
-
-            //두 아이템이 동일한지 확인
             override fun areItemsTheSame(oldItem: ArticleModel, newItem: ArticleModel): Boolean {
                 return oldItem.createdAt == newItem.createdAt
             }
 
-            //두 아이템의 내용이 동일한지 확인
             override fun areContentsTheSame(oldItem: ArticleModel, newItem: ArticleModel): Boolean {
                 return oldItem == newItem
             }

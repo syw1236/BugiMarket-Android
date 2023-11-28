@@ -93,21 +93,26 @@ class HomeFragment : Fragment(R.layout.home) {
 
         articleDB = Firebase.database.reference.child(DB_ARTICLES)
         userDB = Firebase.database.reference.child(DB_USERS)
-        articleAdapter = ArticleAdapter(onItemClicked = { articleModel ->
-            if (auth.currentUser != null) {
-
-                if (auth.currentUser!!.uid != articleModel.sellerId) {
-
-                    //채팅방 이동 로직 추가
-                } else {
-
-                    Snackbar.make(view, "내가 올린 아이템 입니다.", Snackbar.LENGTH_LONG).show()
+        articleAdapter = ArticleAdapter(onItemClicked = { articleModel, action ->
+            when (action) {
+                ArticleAdapter.Action.CLICK -> {
+                    if (auth.currentUser != null) {
+                        if (auth.currentUser!!.uid != articleModel.sellerId) {
+                            // 채팅방으로 이동하는 로직 추가
+                        } else {
+                            Snackbar.make(view, "내가 올린 아이템입니다.", Snackbar.LENGTH_LONG).show()
+                        }
+                    } else {
+                        Snackbar.make(view, "로그인 후 사용해주세요", Snackbar.LENGTH_LONG).show()
+                    }
                 }
-            } else {
-
-                Snackbar.make(view, "로그인 후 사용해주세요", Snackbar.LENGTH_LONG).show()
+                ArticleAdapter.Action.DELETE -> {
+                    // 삭제 옵션이 선택되었을 때 deleteArticle 메서드 호출
+                    deleteArticle(articleModel)
+                }
             }
         })
+
 
         //RecyclerView에 LinearLayoutManager 및 Adapter 설정
         fragmentHomeBinding.articleRecyclerView.layoutManager = LinearLayoutManager(context)
@@ -167,4 +172,18 @@ class HomeFragment : Fragment(R.layout.home) {
         //데이터베이스의 ChildEventListener 제거
         articleDB.removeEventListener(listener)
     }
+
+    private fun deleteArticle(articleModel: ArticleModel) {
+        // 로컬 목록에서 게시물 제거
+        val index = articleList.indexOfFirst { it.chatKey == articleModel.chatKey }
+        if (index > -1) {
+            articleList.removeAt(index)
+            articleAdapter.notifyItemRemoved(index)
+        }
+
+        // Firebase Realtime Database에서 게시물 제거
+        articleDB.child(articleModel.chatKey ?: "").removeValue()
+    }
+
+
 }
