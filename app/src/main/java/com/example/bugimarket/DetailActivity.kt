@@ -65,6 +65,7 @@ class DetailActivity : AppCompatActivity() {
         if (status == "ONSALE") {
             binding.detailStatus.text = "판매중"
             binding.detailStatus.background = ContextCompat.getDrawable(this, R.drawable.rounded_red)
+
         } else {
             binding.detailStatus.text = "판매완료"
             binding.detailStatus.background = ContextCompat.getDrawable(this, R.drawable.rounded_gray)
@@ -72,39 +73,39 @@ class DetailActivity : AppCompatActivity() {
 
         // 채팅 버튼 리스너 추가
         binding.chatButton.setOnClickListener { //채팅하기 버튼을 클릭하면 채팅방이 생성되고 해당 채팅방으로 이동하게 된다.
-            userDB = Firebase.database.reference.child(DBKey.DB_USERS)
-            if(currentUserId != null){
-                if(currentUserId != isSeller){
-                    val chatRoom = ChatListItem(
-                        buyerId = currentUserId,
-                        sellerId = isSeller ?: "",
-                        title = title ?: "",
-                        foreignkey = System.currentTimeMillis()
-                    )
-                    userDB.child(currentUserId)
-                        .child(CHILD_CHAT)
-                        .push()
-                        .setValue(chatRoom)
+            if (status == "ONSALE") { // 게시글 상태가 판매중일 때 채탕하기 기능 활성화
+                userDB = Firebase.database.reference.child(DBKey.DB_USERS)
+                if (currentUserId != null) {
+                    if (currentUserId != isSeller) {
+                        val chatRoom = ChatListItem(
+                            buyerId = currentUserId,
+                            sellerId = isSeller ?: "",
+                            title = title ?: "",
+                            foreignkey = System.currentTimeMillis()
+                        )
+                        userDB.child(currentUserId)
+                            .child(CHILD_CHAT)
+                            .push()
+                            .setValue(chatRoom)
 
-                    userDB.child(isSeller ?: "")
-                        .child(CHILD_CHAT)
-                        .push()
-                        .setValue(chatRoom)
+                        userDB.child(isSeller ?: "")
+                            .child(CHILD_CHAT)
+                            .push()
+                            .setValue(chatRoom)
 
-
-                    val chatIntent = Intent(this, ChatRoomActivity::class.java)
-                    chatIntent.putExtra("chatKey", chatRoom.foreignkey)
-                    startActivity(chatIntent)
-                    Toast.makeText(this, "채팅방이 생성되었습니다. 예의를 지켜 채팅해주세요.", Toast.LENGTH_SHORT).show()
-
+                        val chatIntent = Intent(this, ChatRoomActivity::class.java)
+                        chatIntent.putExtra("chatKey", chatRoom.foreignkey)
+                        startActivity(chatIntent)
+                        Toast.makeText(this, "채팅방이 생성되었습니다. 예의를 지켜 채팅해주세요.", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+                        Toast.makeText(this, "자신의 게시물에서는 채팅을 시작할 수 없습니다.", Toast.LENGTH_SHORT).show()
+                    }
                 }
+            } else { // 게시글 상태가 판매완료일 때 채팅할 수 없음
+                Toast.makeText(this, "이미 판매가 완료된 상품입니다.", Toast.LENGTH_SHORT).show()
             }
-
-
-
-
         }
-
 
         binding.backButton.setOnClickListener {
             finish()
