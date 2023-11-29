@@ -141,7 +141,7 @@ class DetailActivity : AppCompatActivity() {
                     }
                 }
             } else { // 게시글 상태가 판매완료일 때
-                if(currentUserId ==isSeller){ //판매자와 현재 로그인한 사람이 같으면
+                if(currentUserId == isSeller){ //판매자와 현재 로그인한 사람이 같으면
                     Toast.makeText(this, "자신의 게시물에서는 채팅을 시작할 수 없습니다.", Toast.LENGTH_SHORT).show()
                 }else{
                     Toast.makeText(this, "이미 판매가 완료된 상품입니다.", Toast.LENGTH_SHORT).show()
