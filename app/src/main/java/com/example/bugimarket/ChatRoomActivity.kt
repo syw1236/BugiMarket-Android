@@ -41,7 +41,7 @@ class ChatRoomActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         // Intent로부터 채팅 키 가져오기
-        val foreignkey = intent.getLongExtra("chatKey", -1)
+        val foreignkey = intent.getStringExtra("chatKey")
         Log.d("ChatRoomActivity", "chatKey = $foreignkey")
 
         // RecyclerView에 어댑터 및 레이아웃 매니저 설정
