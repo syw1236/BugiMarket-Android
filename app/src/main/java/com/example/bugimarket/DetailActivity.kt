@@ -13,7 +13,10 @@ import com.example.bugimarket.DBKey.Companion.CHILD_CHAT
 import com.example.bugimarket.databinding.ActivityDetailBinding
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.database.database
 
 class DetailActivity : AppCompatActivity() {
@@ -77,26 +80,64 @@ class DetailActivity : AppCompatActivity() {
                 userDB = Firebase.database.reference.child(DBKey.DB_USERS)
                 if (currentUserId != null) {
                     if (currentUserId != isSeller) {
-                        val chatRoom = ChatListItem(
-                            buyerId = currentUserId,
-                            sellerId = isSeller ?: "",
-                            title = title ?: "",
-                            foreignkey = System.currentTimeMillis()
-                        )
+
+                        val foreignKey = "$currentUserId-$isSeller-$title"
+
+                        // 이미 생성된 채팅방인지 체크
                         userDB.child(currentUserId)
                             .child(CHILD_CHAT)
-                            .push()
-                            .setValue(chatRoom)
+                            .orderByChild("foreignkey")
+                            .equalTo(foreignKey)
+                            .addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(snapshot: DataSnapshot) {
+                                    if (snapshot.exists()) {
+                                        // 이미 생성된 채팅방이면 해당 채팅방으로 이동
+                                        val chatRoomKey = snapshot.children.first().key
+                                        val chatIntent = Intent(this@DetailActivity, ChatRoomActivity::class.java)
+                                        chatIntent.putExtra("chatKey", chatRoomKey)
+                                        startActivity(chatIntent)
+                                    } else {
+                                        // 채팅방 생성
+                                        val chatRoom = ChatListItem(
+                                            buyerId = currentUserId,
+                                            sellerId = isSeller ?: "",
+                                            title = title ?: "",
+                                            foreignkey = foreignKey
+                                        )
+                                        userDB.child(currentUserId)
+                                            .child(CHILD_CHAT)
+                                            .push()
+                                            .setValue(chatRoom)
 
-                        userDB.child(isSeller ?: "")
-                            .child(CHILD_CHAT)
-                            .push()
-                            .setValue(chatRoom)
+                                        userDB.child(isSeller ?: "")
+                                            .child(CHILD_CHAT)
+                                            .push()
+                                            .setValue(chatRoom)
 
-                        val chatIntent = Intent(this, ChatRoomActivity::class.java)
-                        chatIntent.putExtra("chatKey", chatRoom.foreignkey)
-                        startActivity(chatIntent)
-                        Toast.makeText(this, "채팅방이 생성되었습니다. 예의를 지켜 채팅해주세요.", Toast.LENGTH_SHORT).show()
+                                        // 채팅방으로 이동
+                                        val chatIntent = Intent(this@DetailActivity, ChatRoomActivity::class.java)
+                                        chatIntent.putExtra("chatKey", chatRoom.foreignkey)
+                                        startActivity(chatIntent)
+                                        Toast.makeText(
+                                            this@DetailActivity,
+                                            "채팅방이 생성되었습니다. 예의를 지켜 채팅해주세요.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                }
+
+                                override fun onCancelled(error: DatabaseError) {
+                                    // 처리 중 오류가 발생한 경우
+                                    Toast.makeText(
+                                        this@DetailActivity,
+                                        "오류가 발생했습니다. 다시 시도해주세요.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            })
+
+
+
                     }
                     else {
                         Toast.makeText(this, "자신의 게시물에서는 채팅을 시작할 수 없습니다.", Toast.LENGTH_SHORT).show()
@@ -111,6 +152,11 @@ class DetailActivity : AppCompatActivity() {
             finish()
         }
     }
+
+
+
+
+
 
     // onActivityResult에서 결과를 받아서 UI 업데이트
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
