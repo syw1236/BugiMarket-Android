@@ -92,9 +92,9 @@ class DetailActivity : AppCompatActivity() {
                                 override fun onDataChange(snapshot: DataSnapshot) {
                                     if (snapshot.exists()) {
                                         // 이미 생성된 채팅방이면 해당 채팅방으로 이동
-                                        val chatRoomKey = snapshot.children.first().key
+//                                        val chatRoomKey = snapshot.children.first().key
                                         val chatIntent = Intent(this@DetailActivity, ChatRoomActivity::class.java)
-                                        chatIntent.putExtra("chatKey", chatRoomKey)
+                                        chatIntent.putExtra("chatKey", foreignKey)
                                         startActivity(chatIntent)
                                     } else {
                                         // 채팅방 생성
