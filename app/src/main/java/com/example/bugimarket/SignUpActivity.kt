@@ -33,8 +33,8 @@ class SignUpActivity: AppCompatActivity() {
     private fun createAuth(userEmail:String,password:String){ //회원가입 함수
         Firebase.auth.createUserWithEmailAndPassword(userEmail,password).addOnCompleteListener(this){
             if(it.isSuccessful){
-                startActivity(Intent(this,LoginActivity::class.java)) //회원가입 완료 시 로그인 창으로 이동
-                Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                startActivity(Intent(this,MainActivity::class.java)) //회원가입 완료 시 게시글 창으로 이동
+                Toast.makeText(this, "회원가입이 완료되었습니다.", Toast.LENGTH_SHORT).show() //회원가입 완료를 알림
             }
             finish() //해당 activity를 끝냄
         }
