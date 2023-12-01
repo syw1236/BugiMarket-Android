@@ -48,7 +48,7 @@
 
 > 판매 글 필터링
 
-<img width="328" alt="필터링누를시에" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/031bbfa4-cc93-43e6-a465-47039f326a60">
+<img width="328" alt="필터링" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/f47a0e9f-bf95-45aa-890f-0f8c765c61f8">
 
 1. 오른쪽 상단에 판매 글 필터링 버튼을 누르면 [전체, 판매중, 판매완료]를 선택할 수 있다.
    
