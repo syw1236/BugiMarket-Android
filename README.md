@@ -21,12 +21,14 @@
 
 
 > 로그인
+
 <img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c">
 
 자신의 계정 이메일과 패스워드를 입력하고 로그인 버튼을 누른다.
 
 
 > 판매 글 목록
+
 <img width="329" alt="판매글 목록" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/a3f3002b-db6a-4039-bc45-792b07ff015a">
 
 로그인 성공 후 판매글 목록이 보인다.
@@ -34,6 +36,7 @@
 
 
 > 판매 글 필터링
+
 <img width="328" alt="판매글필터링1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/20f95d42-07c9-4d32-ade3-179b5e350fb4">
 
 1. 오른쪽 상단에 판매 글 필터링 버튼을 누르면 [전체, 판매중, 판매완료]를 선택할 수 있다.
@@ -49,6 +52,7 @@
 
 
 > 판매 글 보기
+
 ![판매글 보기 1번 상위](https://github.com/syw1236/BugiMarket-Android/assets/120784103/09310ae6-81d5-4cc4-9f57-6c6b2288e4f2)
 
 1. 판매글 목록 화면에서 자세히 보고 싶은 게시글 클릭
@@ -59,6 +63,7 @@
 
 
 > 판매 글 등록
+
 ![판매글등록1번](https://github.com/syw1236/BugiMarket-Android/assets/120784103/dd6d2480-3526-4f7c-9b09-1e261f76dd14)
 
 1. 오른쪽 하단에 판매글 등록 버튼을 누르면 글 등록 화면으로 넘어간다.
@@ -97,6 +102,7 @@
 
 
 > 판매 글 수정
+
 ![판매글수정1번](https://github.com/syw1236/BugiMarket-Android/assets/120784103/5df4a94a-c7ca-46f7-8d78-4e91c20f3b27)
 
 1. 판매글 목록에서 본인이 쓴 판매글을 클릭
@@ -115,15 +121,19 @@
 
 
 > 메시지 보내기
+
 자신의 게시글이 아닌 다른 게시글에서 채팅하기 버튼을 누르면 채팅방이 바로 생긴다.
 (본인 게시글에는 채팅 불가, 판매 완료 게시글도 채팅 불가)
 그 채팅방에서 보내고 싶은 메시지를 적고 전송 버튼을 누르면 된다.
+
 ![메시지보내기](https://github.com/syw1236/BugiMarket-Android/assets/120784103/00eee04f-17bd-4929-a65a-0f320d3249a7)
 
 
 > 메시지 보기
+
 게시글 주인의 경우, 게시글 창에서 채팅창으로 넘어오면 채팅방이 새로 생긴 것을 볼 수 있다.
 - 새로 생긴 채팅 목록을 보기 위해서는 게시글창에서 채팅방으로 이동해야 새로 업데이트 된 채팅방을 볼 수 있다.
+
 ![메시지보기1번](https://github.com/syw1236/BugiMarket-Android/assets/120784103/8f0b23c0-df97-4384-86b0-6c718f71cc13)
 
 해당 채팅방을 클릭하면 새로 메시지가 온 것을 확인할 수 있다.
