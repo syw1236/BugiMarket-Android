@@ -17,9 +17,9 @@
 2. 이메일, 이름, 패스워드, 생년월일 입력하고 계정생성 버튼 클릭
    
 
-<img width="328" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c" style="zoom: 25%;">
+<img width="328" alt="판매글 목록" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/a3f3002b-db6a-4039-bc45-792b07ff015a" style="zoom: 25%;">
 
-3. 그럼 다시 로그인 화면으로 돌아가 방금 만든 계정의 이메일과 패스워드를 입력하고 로그인 버튼을 누른다.
+3. 회원가입 성공 후, 로그인 완료 상태가 되어 판매글 목록이 보인다
    
 
 
