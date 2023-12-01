@@ -12,12 +12,12 @@
 1. 회원가입 버튼을 눌러 계정 생성 화면으로 넘어간다.
    
 
-<img width="328" alt="회원가입 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/da232c84-c935-4403-9394-1b736e151e4a">
+<img width="328" alt="회원가입 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/da232c84-c935-4403-9394-1b736e151e4a" style="zoom: 25%;">
 
 2. 이메일, 이름, 패스워드, 생년월일 입력하고 계정생성 버튼 클릭
    
 
-<img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c">
+<img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c" style="zoom: 25%;">
 
 3. 그럼 다시 로그인 화면으로 돌아가 방금 만든 계정의 이메일과 패스워드를 입력하고 로그인 버튼을 누른다.
    
@@ -25,7 +25,7 @@
 
 > 로그인
 
-<img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c">
+<img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c" style="zoom: 25%;">
 
 자신의 계정 이메일과 패스워드를 입력하고 로그인 버튼을 누른다.
 
@@ -33,7 +33,7 @@
 
 > 판매 글 목록
 
-<img width="329" alt="판매글 목록" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/a3f3002b-db6a-4039-bc45-792b07ff015a">
+<img width="329" alt="판매글 목록" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/a3f3002b-db6a-4039-bc45-792b07ff015a" style="zoom: 25%;">
 
 로그인 성공 후 판매글 목록이 보인다.
 (휴지통 버튼은 본인의 글에만 나타나고 클릭 시 게시글 삭제)
@@ -42,18 +42,18 @@
 
 > 판매 글 필터링
 
-<img width="328" alt="판매글필터링1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/20f95d42-07c9-4d32-ade3-179b5e350fb4">
+<img width="328" alt="판매글필터링1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/20f95d42-07c9-4d32-ade3-179b5e350fb4" style="zoom: 25%;">
 
 1. 오른쪽 상단에 판매 글 필터링 버튼을 누르면 [전체, 판매중, 판매완료]를 선택할 수 있다.
    
 
-<img width="329" alt="판매글필터링2-1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/7e00c34a-9d68-4150-b6d0-af6ae93bf172">
-<img width="330" alt="판매글필터링2-2번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/2fa90298-e9fc-473b-9448-60dcc22310fb">
+<img width="329" alt="판매글필터링2-1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/7e00c34a-9d68-4150-b6d0-af6ae93bf172" style="zoom: 25%;">
+<img width="330" alt="판매글필터링2-2번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/2fa90298-e9fc-473b-9448-60dcc22310fb" style="zoom: 25%;">
 
 2. 판매중을 누르면 판매글 목록에 판매중인 상품들만 보인다.
    
 
-<img width="328" alt="판매글필터링3번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/54757e07-e295-468c-a6ef-086c99287765">
+<img width="328" alt="판매글필터링3번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/54757e07-e295-468c-a6ef-086c99287765" style="zoom: 25%;">
 
 3. 판매완료도 마찬가지로 필터링 된다.
    
