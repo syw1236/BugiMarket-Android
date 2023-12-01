@@ -159,7 +159,7 @@
 
 ![메시지보기1번](https://github.com/syw1236/BugiMarket-Android/assets/120784103/8f0b23c0-df97-4384-86b0-6c718f71cc13)
 
-
 해당 채팅방을 클릭하면 새로 메시지가 온 것을 확인할 수 있다.
+
 ![메시지보기2번](https://github.com/syw1236/BugiMarket-Android/assets/120784103/18bbf3d4-1d30-4cff-a17f-1fdeb3e2f511)
 
