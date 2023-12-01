@@ -151,6 +151,7 @@
 
 <img width="328" alt="메시지보내기" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/00eee04f-17bd-4929-a65a-0f320d3249a7" style="zoom: 25%;">
 
+
 <br>
 
 
