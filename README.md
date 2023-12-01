@@ -5,6 +5,7 @@
 
 > 계정 생성
 <br>
+
 #### 초기 화면 모습
 
 <img width="328" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c" style="zoom: 25%;">
