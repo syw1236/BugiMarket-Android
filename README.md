@@ -13,16 +13,18 @@
 1. 회원가입 버튼을 눌러 계정 생성 화면으로 넘어간다.
    
 <br>
+<br>
 <img width="328" alt="회원가입 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/da232c84-c935-4403-9394-1b736e151e4a" style="zoom: 25%;">
 
 2. 이메일, 이름, 패스워드, 생년월일 입력하고 계정생성 버튼 클릭
    
-
+<br>
+<br>
 <img width="328" alt="판매글 목록" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/a3f3002b-db6a-4039-bc45-792b07ff015a" style="zoom: 25%;">
 
 3. 회원가입 성공 후, 로그인 완료 상태가 되어 판매글 목록이 보인다
    
-
+<br>
 <br>
 
 > 로그인
