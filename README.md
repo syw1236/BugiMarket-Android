@@ -7,7 +7,7 @@
 
 초기 화면 모습
 
-<img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c">
+<img width="329" alt="계정생성 -첫 로그인 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/e44211a8-5f1b-4ea5-b955-ac683ed9267c" style="zoom: 25%;">
 
 1. 회원가입 버튼을 눌러 계정 생성 화면으로 넘어간다.
    
