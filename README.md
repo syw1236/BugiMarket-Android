@@ -188,17 +188,19 @@
 
 > 메시지 보기
 
+<img width="328" alt="메시지보기1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/8f0b23c0-df97-4384-86b0-6c718f71cc13" style="zoom: 25%;">
+
 게시글 주인의 경우, 게시글 창에서 채팅창으로 넘어오면 채팅방이 새로 생긴 것을 볼 수 있다.
 - 새로 생긴 채팅 목록을 보기 위해서는 게시글창에서 채팅방으로 이동해야 새로 업데이트 된 채팅방을 볼 수 있다.
 
-<img width="328" alt="메시지보기1번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/8f0b23c0-df97-4384-86b0-6c718f71cc13" style="zoom: 25%;">
+
 
 <br>
 <br>
+<img width="328" alt="메시지보기2번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/18bbf3d4-1d30-4cff-a17f-1fdeb3e2f511" style="zoom: 25%;">
 
 해당 채팅방을 클릭하면 새로 메시지가 온 것을 확인할 수 있다.
 
 
-<img width="328" alt="메시지보기2번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/18bbf3d4-1d30-4cff-a17f-1fdeb3e2f511" style="zoom: 25%;">
 
 
