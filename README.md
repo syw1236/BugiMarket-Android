@@ -66,7 +66,7 @@
 
 1. 판매글 목록 화면에서 자세히 보고 싶은 게시글 클릭
 
-<img width="328" alt="판매글 보기 상세 보기" src="[https://github.com/syw1236/BugiMarket-Android/assets/120784103/09310ae6-81d5-4cc4-9f57-6c6b2288e4f2](https://github.com/syw1236/BugiMarket-Android/assets/120784103/d8113869-e52e-4da1-82f2-ac99cac1331d)" style="zoom: 25%;">
+<img width="328" alt="판매글 보기 상세 보기" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/d8113869-e52e-4da1-82f2-ac99cac1331d" style="zoom: 25%;">
 
 
 3. 제목, 내용, 가격, 판매여부, 판매자 확인 가능하며, 판매자에게 메시지 보내는 채팅하기 버튼이 있다.
