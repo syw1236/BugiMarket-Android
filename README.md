@@ -12,7 +12,7 @@
 
 1. 회원가입 버튼을 눌러 계정 생성 화면으로 넘어간다.
    
-
+<br>
 <img width="328" alt="회원가입 화면" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/da232c84-c935-4403-9394-1b736e151e4a" style="zoom: 25%;">
 
 2. 이메일, 이름, 패스워드, 생년월일 입력하고 계정생성 버튼 클릭
