@@ -61,7 +61,8 @@
 
 > 판매 글 보기
 
-![판매글 보기 1번 상위](https://github.com/syw1236/BugiMarket-Android/assets/120784103/09310ae6-81d5-4cc4-9f57-6c6b2288e4f2)
+<img width="328" alt="판매글 보기 1번 상위" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/09310ae6-81d5-4cc4-9f57-6c6b2288e4f2" style="zoom: 25%;">
+
 
 1. 판매글 목록 화면에서 자세히 보고 싶은 게시글 클릭
    
