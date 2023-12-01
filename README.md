@@ -195,7 +195,9 @@
 
 <br>
 <br>
+
 해당 채팅방을 클릭하면 새로 메시지가 온 것을 확인할 수 있다.
+
 
 <img width="328" alt="메시지보기2번" src="https://github.com/syw1236/BugiMarket-Android/assets/120784103/18bbf3d4-1d30-4cff-a17f-1fdeb3e2f511" style="zoom: 25%;">
 
